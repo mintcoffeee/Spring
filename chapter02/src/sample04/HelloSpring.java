@@ -27,7 +27,7 @@ public class HelloSpring {
 			if(num == 1) sungJuk = (SungJuk)context.getBean("sungJukInput"); 
 			else if(num == 2) sungJuk = (SungJuk)context.getBean("sungJukOutput"); 
 			else if(num == 3) sungJuk = (SungJuk)context.getBean("sungJukUpdate");
-			else if(num == 4);
+			else if(num == 4) sungJuk = (SungJuk)context.getBean("sungJukDelete");
 			
 			sungJuk.execute();
 			
