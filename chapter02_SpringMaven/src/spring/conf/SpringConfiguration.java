@@ -1,11 +1,15 @@
 package spring.conf;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import sample01.MessageBeanImpl;
 import sample02.CalcAdd;
 import sample02.CalcMul;
+import sample04.SungJukDTO2;
 
 //@Configuration: xml 처럼 bean을 설정할 수 있는 환경 설정 파일 
 @Configuration
@@ -30,6 +34,14 @@ public class SpringConfiguration {
 	public CalcMul getCalcMul(){
 		return new CalcMul();
 	}
+	
+	//sample04
+	@Bean
+	//public ArrayList<SungJukDTO2> arrayList() {
+	public List<SungJukDTO2> arrayList() {	//위에보다 자주 사용
+		return new ArrayList<SungJukDTO2>();
+	}
+	
 }
 
 

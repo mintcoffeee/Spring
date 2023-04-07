@@ -8,7 +8,11 @@
 	<context:component-scan base-package="sample01" />	
 	<context:component-scan base-package="sample02" />	
 	<context:component-scan base-package="sample03" />	
-	
+	<context:component-scan base-package="sample04" />	
 	
 	<context:component-scan base-package="spring.conf" />	
+	
+	<!-- <bean id="list" class="java.util.ArrayList"></bean> 
+		xml에 작성해도 괜찮지만 context만 작성하는 가운데 빈이 끼면 이질적
+		SpringConfiguration에 Bean 생성 해준다 -->
 </beans>
