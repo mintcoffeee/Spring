@@ -29,7 +29,7 @@ public class HelloSpring {
 			
 			if(num == 1) userService =  (UserService)context.getBean("userInsertService");
 			else if(num == 2) userService = (UserService)context.getBean("userSelectService");
-			else if(num == 3) userService = (UserService)context.getBean("userUpdateService");
+			else if(num == 3) userService = (UserService)context.getBean("userUpdateService2");
 			else if(num == 4) userService = (UserService)context.getBean("userDeleteService");
 			
 			userService.execute();

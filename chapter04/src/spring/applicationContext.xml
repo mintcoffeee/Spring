@@ -42,20 +42,24 @@
 	<bean id="userSelectService" class="user.service.UserSelectService">
 		<property name="userDAO" ref="userDAOImpl" />
 	</bean>
-	<bean id="userUpdateService" class="user.service.UserUpdateService">
+	<!-- <bean id="userUpdateService" class="user.service.UserUpdateService"> -->
+	<bean id="userUpdateService2" class="user.service.UserUpdateService2">
 		<property name="userDAO" ref="userDAOImpl" />
 	</bean>
-	<bean id="userDeleteService" class="user.service.UserDeleteService">
+	
+	<bean id="userDeleteService" class="user.service.UserDeleteService2">
 		<property name="userDAO" ref="userDAOImpl" />
 	</bean>
 	
 	<bean id="userDTO" class="user.bean.UserDTO" ></bean>
 	
-	<bean id="userDAOImpl" class="user.dao.UserDAOImpl">
+<!-- 	<bean id="userDAOImpl" class="user.dao.UserDAOImpl"> -->
+	<bean id="userDAOImpl" class="user.dao.UserDAOImpl2">
 		<!-- <property name="jdbcTemplate" ref="jdbcTemplate" /> -->
 		<property name="dataSource" ref="dataSource" /> 
 		<!-- userDAOImpl에 dataSource 메소드를 가지고 있지 않기 때문에 부모 클래스 JdbcDaoSupport에 가서 찾는다. -->
 	</bean>
+	
 	
 	<!-- 
 	JdbcDaoSupport 상속 하였으므로 jdbcTemplate을 빈으로 생성할 필요가 없다. 

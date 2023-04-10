@@ -6,10 +6,17 @@ import lombok.Setter;
 import user.bean.UserDTO;
 import user.dao.UserDAO;
 
-@Setter
 public class UserInsertService implements UserService {
 	private UserDTO userDTO=null;
 	private UserDAO userDAO=null;
+
+	public void setUserDTO(UserDTO userDTO) {
+		this.userDTO = userDTO;
+	}
+
+	public void setUserDAO(UserDAO userDAO) {
+		this.userDAO = userDAO;
+	}
 
 	@Override
 	public void execute() {

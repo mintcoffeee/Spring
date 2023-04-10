@@ -8,10 +8,13 @@ import lombok.Setter;
 import user.bean.UserDTO;
 import user.dao.UserDAO;
 
-@Setter
 public class UserDeleteService implements UserService {
 	private UserDAO userDAO;
 	
+	public void setUserDAO(UserDAO userDAO) {
+		this.userDAO = userDAO;
+	}
+
 	@Override
 	public void execute() {
 		Scanner scan = new Scanner(System.in);
