@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"	
+  "https://mybatis.org/dtd/mybatis-3-config.dtd"><!-- DTD 파일은 절대 손으로 쓰는게 아니다. -->
+<configuration>
+ 	
+	<typeAliases>
+		<typeAlias type="user.bean.UserDTO" alias="user" />
+	</typeAliases>
+	
+	<!-- spring: applicationContext 에서 받는다. 
+	<mappers>
+		<mapper resource="user/dao/userMapper.xml"/>
+	</mappers> -->
+	
+</configuration>  
