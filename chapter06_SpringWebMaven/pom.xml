@@ -82,6 +82,27 @@
 	    <version>1.2</version>
 	</dependency>
 	
+	<!-- JSON -->
+	<dependency>
+	    <groupId>net.sf.json-lib</groupId>
+	    <artifactId>json-lib</artifactId>
+	    <version>2.4</version>
+	    <classifier>jdk15</classifier><!-- jdk1.5 버전이상 json 사용 -->
+	</dependency>
+	
+	<dependency>
+	    <groupId>com.fasterxml.jackson.core</groupId>
+	    <artifactId>jackson-core</artifactId>
+	    <version>2.14.1</version>
+	</dependency>
+	<!-- jackson-core jackson-databind 두개는 같은 버전으로 같 써야 한다. -->
+	<dependency>
+	    <groupId>com.fasterxml.jackson.core</groupId>
+	    <artifactId>jackson-databind</artifactId>
+	    <version>2.14.1</version>
+	</dependency>
+	
+	
 	<!-- Lombok -->
 	<dependency>
 	    <groupId>org.projectlombok</groupId>
