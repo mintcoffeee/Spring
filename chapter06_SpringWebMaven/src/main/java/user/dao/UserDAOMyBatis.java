@@ -23,8 +23,11 @@ public class UserDAOMyBatis implements UserDAO {
 	}
 
 	@Override
-	public List<UserDTO> getUserList() {
-		return sqlSession.selectList("userSQL.getUserList");
+	public List<UserDTO> getUserList(Map<String, Integer> map) {
+		return sqlSession.selectList("userSQL.getUserList", map);
+		//selectList는 List 형태로 mapper파일로 들어간다. 
+		//resultType="user" 는 select * from 에서 선택된 행 들을 dto 에 담는다.
+		//이 dto를 사전에 형성된 List 형태에 담아서 받아온다. 
 	}
 
 	@Override
@@ -42,4 +45,20 @@ public class UserDAOMyBatis implements UserDAO {
 		sqlSession.update("userSQL.update", userDTO);
 	}
 
+	@Override
+	public void delete(String id) {
+		sqlSession.delete("userSQL.delete",id);
+	}
+
+	@Override
+	public int getTotalA() {
+		return sqlSession.selectOne("userSQL.getTotalA");
+	}
+
 }
+
+
+
+
+
+

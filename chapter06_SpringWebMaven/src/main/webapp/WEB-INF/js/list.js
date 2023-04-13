@@ -2,12 +2,15 @@ $(function(){
 	$.ajax({
 		type: 'post',
 		url: '/chapter06_SpringWebMaven/user/getUserList',
+		data: 'pg='+$('#pg').val(),
 		dataType: 'json',
+		
 		success: function(data){
 			console.log(JSON.stringify(data));
+			console.log(data.list[0].name);
 			
-			console.log(data[0].name);
-			$.each(data, function(index, items){
+			
+			$.each(data.list, function(index, items){
 				$('<tr/>').append($('<td/>', {
 					align: 'center',
 					text: items.name
@@ -19,6 +22,10 @@ $(function(){
 					text: items.pwd
 				})).appendTo($('#userListTable'));
 			});//each
+			
+			//페이징 처리
+			$('#userPagingDiv').html(data.userPaging.pagingHTML);
+			
 		},
 		error: function(err){
 			console.log(err);

@@ -1,9 +1,10 @@
 package user.controller;
 
-import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,16 +34,20 @@ public class UserController {
 	}
 	
 	@GetMapping(value="list")
-	public String list() {
+	public String list(@RequestParam(required = false, defaultValue="1")  String pg, Model model) {
+		//pg 값을 생략하면 default 값으로 1 을 잡겠다.
 		//DB를 가지않고 바로 화면에 틀만 띄운다. 
+		model.addAttribute("pg", pg);
 		return "user/list";
 	}
+
 	
 	@PostMapping(value="getUserList")
 	@ResponseBody //dispatcher 로 가지 마라, 갖고 있는 객체를 자연스럽게 json으로 변환 해준다.  
-	public List<UserDTO> getUserList() {
-		return userService.getUserList();
+	public Map<Object, Object> getUserList(@RequestParam String pg) {
+		return userService.getUserList(pg);
 	}
+	
 	
 	@PostMapping(value="isExistId")
 	@ResponseBody // return 값을 파일명이 아닌 문자열로 인식하기 위해 사용
@@ -70,6 +75,13 @@ public class UserController {
 	public String deleteForm() {
 		return "user/deleteForm";
 	}
+	
+	@PostMapping(value="delete")
+	@ResponseBody  
+	public void delete(@RequestParam String id) {
+		userService.delete(id);
+	}
+	
 }
 
 

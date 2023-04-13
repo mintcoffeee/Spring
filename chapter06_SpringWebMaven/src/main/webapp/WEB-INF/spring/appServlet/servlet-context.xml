@@ -3,14 +3,30 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
-
+	
+	<!-- 브라우저 화면에 뿌리기 -->
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
+	
+	
+	<!-- 파일 업로드 -->
+	<!-- <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
+		 p:maxUploadSize="5000000" /> -->
+		 <!-- p가 있어야한다. Namespaces 가서 체크 -->
+		 
+	<!-- p를 쓰지 않겠다 하면 property 사용 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		 <property name="maxUploadSize" value="5000000" /><!-- 5MB -->
+	</bean>
+	
+	
+	
 	<!-- <bean id="mainController" class="main.controller.MainController"></bean> -->
 	<context:component-scan base-package="main.controller"/>
 	<context:component-scan base-package="user.controller"/>
@@ -21,4 +37,5 @@
 	<mvc:resources location="/WEB-INF/image/" mapping="/image/**" />
 	<!-- image 앞에 '/'는 dispatcher 가지 말고 location 으로 가라  -->
 	<mvc:resources location="/WEB-INF/js/" mapping="/js/**" />
+	<mvc:resources location="/WEB-INF/storage/" mapping="/storage/**" />
 </beans>
