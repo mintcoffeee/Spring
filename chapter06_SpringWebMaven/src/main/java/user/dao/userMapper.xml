@@ -75,4 +75,13 @@
 		select count(*) from usertable
 	</select>
 	
+	<!-- 업로드 -->
+	<insert id="upload" parameterType="user.bean.UserImageDTO">
+		insert into userimage values(seq_userimage.nextval, #{imageName}, #{imageContent}, #{image1})
+	</insert>
+	
+	<!-- 이미지 리스트 -->
+	<select id="getImageList" resultType="user.bean.UserImageDTO">
+		select * from userimage order by seq desc
+	</select>
 </mapper>  

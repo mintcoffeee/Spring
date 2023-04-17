@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import user.bean.UserDTO;
+import user.bean.UserImageDTO;
 
 @Repository
 @Transactional
@@ -53,6 +54,19 @@ public class UserDAOMyBatis implements UserDAO {
 	@Override
 	public int getTotalA() {
 		return sqlSession.selectOne("userSQL.getTotalA");
+	}
+
+	@Override
+	public void upload(UserImageDTO userImageDTO, List<String> fileNameList) {
+		for(String fileName : fileNameList) {
+			userImageDTO.setImage1(fileName);
+			sqlSession.insert("userSQL.upload", userImageDTO);
+		}
+	}
+
+	@Override
+	public List<UserImageDTO> getImageList() {
+		return sqlSession.selectList("userSQL.getImageList");
 	}
 
 }

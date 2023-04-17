@@ -81,8 +81,14 @@
 	    <artifactId>jstl</artifactId>
 	    <version>1.2</version>
 	</dependency>
-	
-	<!-- JSON -->
+	  <dependency>
+		  <groupId>javax.servlet</groupId>
+		  <artifactId>javax.servlet-api</artifactId>
+		  <version>4.0.1</version>
+		  <scope>provided</scope>
+	  </dependency>
+
+	  <!-- JSON -->
 	<dependency>
 	    <groupId>net.sf.json-lib</groupId>
 	    <artifactId>json-lib</artifactId>

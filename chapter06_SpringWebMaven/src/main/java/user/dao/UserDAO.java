@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import user.bean.UserDTO;
+import user.bean.UserImageDTO;
 
 public interface UserDAO {
 
@@ -18,5 +19,9 @@ public interface UserDAO {
 	void delete(String id);
 
 	int getTotalA();
+
+	void upload(UserImageDTO userImageDTO, List<String> fileNameList);
+
+	List<UserImageDTO> getImageList();
 
 }
