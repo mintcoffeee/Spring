@@ -101,5 +101,23 @@ public class UserDAOImpl extends NamedParameterJdbcDaoSupport implements UserDAO
 		
 	}
 
+	@Override
+	public UserDTO getUser(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void update2(Map<String, String> map) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete2(String id) {
+		// TODO Auto-generated method stub
+		
+	}
+
 		
 }
